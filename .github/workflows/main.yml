@@ -1,4 +1,8 @@
-
+- name: Run SNN Matrix
+  run: |
+    echo "import numpy as np; np.random.seed(42); $(cat snn_matrix.py)" > temp_script.py
+    python temp_script.py > output.txt || echo "Script failed, check logs"
+    cat output.txt
 name: SNN-Matrix-Job
 on:
   push:
